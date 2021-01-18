@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+Post List <!-- Texto libre -->
+{% endblock %}
+
+{% block content %}
+<h1> Message board page </h1>
+
+<ul>
+    {%for post in posts %} <!--Se cambia el nombre en el contexto de views-->
+    <li>{{ post.text }}</li>
+    {% endfor %}    
+</ul>
+{% endblock %} <!-- Recordar siempre cerrar los %-->

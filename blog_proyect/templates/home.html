@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+    {% for post in posts %} 
+    <!--Este nombre se cambia con el context_object_name en views-->
+        <h2><a href="{% url 'post_detail' post.pk%}">{{ post.title }}</a></h2>
+        <p>{{ post.body }}</p>
+    {% endfor %}
+{% endblock %}

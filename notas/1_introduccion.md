@@ -1,24 +1,42 @@
-# ¿Qué es Djang?
+# ¿Qué es Django?
 
 # 1. Iniciar un nuevo proyecto
-django-admin startproject <nombre>
+*** django-admin startproject _<nombre>_***
 
-## Modificar archivo settings 
+## 1.1 Configuración básica y archivos de inicio
+### Modificar archivo settings 
 El archivo de settings se tiene que modificar como buena práctiva
-MY_APPS, THIRD_APPS INSTALLES +=
-templates = [os.path.join(BASE_, 'templates')]
 
-## Agregar carpetas apps, templates
-__init__.py en apps
+  a) *APPS* 
 
-## Si se necesita hay que agregar las urls
-en el urls.py con un include
+   + MY_APPS, THIRD_APPS
+   + MY_APPS = ['apps.<app_name>']  
+   + INSTALLES += MY_APPS + THIRD_APPS
+   + Se debe crear nueva carpeta llamada apps
+
+  b) *TEMPLATES* 
+
+   + En el diccionario TEMPLATES
+    + Modificar DIRS : [os.path.join(BASE, 'templates')]
+   + Se debe crear nueva carpeta llamada templates 
 
 
-# comenzar app
+## 1.2 Agregar carpetas apps, templates y archivo init en apps
+
+  + Crear a nivel base:
+    + apps/
+      + apps/\__init__\.py 
+    + templates/ 
+   
+
+## 1.3 Comenzar app
+
 python manage.py startapp <nombre_app>
 mover a folder apps
 registrar en settings como apps.<nombre_app>
+
+### Si se necesita hay que agregar las urls
+en el urls.py con un include
 
 
 # Vistas y Templates
@@ -50,6 +68,18 @@ En el dashboard de admin para que salgan los posts en el dashboard
 
 ## Se enlazan los modelos con vistas genéricas y las vistas con los templates a urls
 Modificar views de la app, templates (que se direccionen a las vistas) y urls para tener accesso.
+
+## ENlistar para views
+``` python
+# En el archivo views
+from django.views.generic import ListView
+from .models import <Modelo>
+
+
+```
+
+
+## CSS y estáticos
 
 
 
